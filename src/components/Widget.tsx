@@ -1,19 +1,13 @@
-import { ChatTeardropDots } from 'phosphor-react';
 import { useState } from 'react';
+import { ChatTeardropDots } from 'phosphor-react';
+import { Popover } from '@headlessui/react';
 
 export const Widget = () => {
-  const [isWidgetOpen, setIsWidgetOpen] = useState(false);
-
-  const toggleWidgetVisibility = () => {
-    setIsWidgetOpen(!isWidgetOpen);
-  };
-
   return (
-    <div className={'absolute bottom-5 right-5'}>
-      {isWidgetOpen && <h1>Widget</h1>}
+    <Popover className={'absolute bottom-5 right-5'}>
+      <Popover.Panel>Hello world</Popover.Panel>
 
-      <button
-        onClick={toggleWidgetVisibility}
+      <Popover.Button
         className={
           'bg-brand-500 rounded-full px-3 h-12 text-white flex items-center group'
         }
@@ -27,7 +21,7 @@ export const Widget = () => {
           <span className={'pl-2'}></span>
           Feedback
         </span>
-      </button>
-    </div>
+      </Popover.Button>
+    </Popover>
   );
 };
